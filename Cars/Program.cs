@@ -1,11 +1,23 @@
 ﻿using Cars;
+using System.Xml;
+using System.Xml.Serialization;
 
 var cars = ProcessFile("fuel.csv");
 
-foreach (var car in cars)
+XmlSerializer serializer = new XmlSerializer(typeof(List<Car>));
+
+string CarXml = default!;
+
+using(StringWriter sw = new StringWriter())
 {
-    Console.WriteLine(car.Name);
+    serializer.Serialize(sw, cars);
+    CarXml = sw.ToString();
 }
+
+Console.Write(CarXml);
+//serializer.Serialize(Console.Out,cars);
+
+File.WriteAllText("Cars.xml",CarXml);
 
 #region Methods
 
