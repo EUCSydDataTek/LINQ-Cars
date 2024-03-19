@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dumpify" Version="0.6.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="fuel.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

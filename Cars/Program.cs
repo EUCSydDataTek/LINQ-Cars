@@ -1,4 +1,5 @@
 ﻿using Cars;
+using Dumpify;
 
 var cars = ProcessFile("fuel.csv");
 
@@ -24,6 +25,8 @@ var query =
 //        c.Name,
 //        c.Combined
 //    });
+
+query.Take(10).Dump();
 
 #region Methods
 
